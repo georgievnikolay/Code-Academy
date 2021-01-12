@@ -1,3 +1,5 @@
+//Намерете броя на позициите на битовете в които две
+//числа се различават.
 #include <stdio.h>
 
 int lastBitCheck(int number);
