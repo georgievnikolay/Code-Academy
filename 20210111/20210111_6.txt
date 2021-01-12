@@ -1,0 +1,13 @@
+#include<stdio.h>
+
+int main() {
+    
+    int number = 7, index = 0;
+    
+    int mask = 1;
+    mask = mask << index;
+    
+    printf("%d\n", number ^ mask);
+ 
+    return 0;
+}

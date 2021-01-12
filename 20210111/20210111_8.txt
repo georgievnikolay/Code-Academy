@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main()
+{
+
+    int number = 112, count = 0;
+    while (number != 1){
+
+        number = number >> 1;
+        count++;
+    }
+
+    printf("%d\n", count);
+    return 0;
+}

@@ -1,0 +1,11 @@
+#include<stdio.h>
+
+int main() {
+    
+    int number = 3;
+    int mask = 0x49249248;
+    
+    printf("%d\n", number | mask);
+ 
+    return 0;
+}

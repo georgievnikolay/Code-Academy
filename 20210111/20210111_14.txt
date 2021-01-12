@@ -1,0 +1,11 @@
+#include<stdio.h>
+
+int main() {
+    
+    int number = 7;
+    unsigned int mask = 0xAAAAAAAA;
+
+    printf("%u\n", mask ^ number);
+ 
+    return 0;
+}

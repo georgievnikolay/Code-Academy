@@ -1,0 +1,18 @@
+#include<stdio.h>
+
+int main() {
+    
+    int number = 112;
+    int index = 2;
+    unsigned int mask = 0xFFFFFFFF;
+    
+    printf("%u\n", mask);
+    
+    index = 32 - index;
+    
+    mask = mask >> index;
+
+    printf("%u\n", number & mask);
+ 
+    return 0;
+}

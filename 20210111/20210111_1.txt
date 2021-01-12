@@ -1,0 +1,16 @@
+#include<stdio.h>
+
+int main() {
+    int x = 3, y = 5, rez;
+
+    rez = 3 & 5;
+    printf("%d\n", rez);
+
+    rez = 3 | 5;
+    printf("%d\n", rez);
+
+    rez = 3 ^ 5;
+    printf("%d\n", rez);
+ 
+    return 0;
+}
