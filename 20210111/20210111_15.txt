@@ -1,3 +1,5 @@
+//Пребройте последователностите в битовия запис на
+//числото.
 #include<stdio.h>
 
 int lastBitCheck(int number);
