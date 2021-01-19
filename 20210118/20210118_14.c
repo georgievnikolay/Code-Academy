@@ -1,4 +1,4 @@
-//Comma operator, същата като 5зад
+//Comma operator
 #include<stdio.h>
 
 int main() {
