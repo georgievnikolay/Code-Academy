@@ -20,7 +20,7 @@ int main(){
         passGen(pass);
         printf("Your new password is: \"%s\"\n", pass);
         printf("Do you want to keep it? y/n:");
-        scanf("%c", &choice);
+        scanf(" %c", &choice);
 
         if(choice == 'y'){
             break;
