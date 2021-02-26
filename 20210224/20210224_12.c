@@ -13,8 +13,7 @@ return x > y ? x : y;
 }*/
 #include<stdio.h>
 
-#define GENERIC_MAX(type) (type (#type)_max(type x, type y)){\
-                                return x > y ? x : y;}\
+#define GENERIC_MAX(type) type type##_max(type x, type y){return x > y ? x : y;}
                             
 GENERIC_MAX(int);
 
@@ -28,3 +27,4 @@ int main()
 }
 
 /*Дава ми грешка и не знам как да я оправя.. в интернет никъде не намерих макрота да се експандват по този начин за да си помогна и да го направя*/
+/*26.02.2021 оправено*/
