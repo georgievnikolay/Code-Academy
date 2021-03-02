@@ -27,6 +27,7 @@ void swap(participant *a, participant *b);
 
 int main()
 {
+    char choice;
 
     printf("Enter the number of participants: ");
     scanf("%ud", &countParticipants);
@@ -34,9 +35,19 @@ int main()
     participant *participantsList = (participant *)malloc(countParticipants * sizeof(participant));
 
     enterParticipants(participantsList);
-
-    orderAlphabetically(participantsList);
     printParticipantsList(participantsList);
+
+    fflush(stdin);
+    printf("\nDo you want to order them alphabetically? y/n: ");
+    scanf("%c", &choice);
+
+    if(choice == 'y')
+    {
+        orderAlphabetically(participantsList);
+        printParticipantsList(participantsList);
+    }
+
+    free(participantsList);
 
     return 0;
 }
