@@ -1,0 +1,5 @@
+enterValidNumber -> 0 : Succsessfull
+enterValidNumber -> 0 : Succsessfull
+calculateSeparately -> 0 : Succsessfull
+calculateTogether -> 0 : Succsessfull
+betterChoice -> 0 : Succsessfull
