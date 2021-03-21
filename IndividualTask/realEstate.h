@@ -17,11 +17,8 @@
 #define CSV_FORMAT_ESTATE_IN "%d,%u,%s,%s,%u,%c,%d,%u"
 #define CSV_FORMAT_PERSON_IN "\n%s,%s,%s,%s,%s,%u,%c,%d,%u,%s,%u,%d/%d/%d,%d/%d/%d,%u,%d/%d/%d,%u"
 
-#define PRINT_REAL_ESTATE_DATA_FORMAT_HEADER  "Unique number:\tCadastre number:\tCity:\tStreet:\t\tFloor:\tApartment:\n"
-#define PRINT_REAL_ESTATE_DATA_FORMAT "%d\t\t%u\t\t\t%s\t\"%s\"%u%c\t\t%d\t%u\n"
-
-// #define PRINT_REAL_ESTATE_DATA_FORMAT_HEADER  "Unique number:\tCadastre number:\tCity:\tStreet:\t\tFloor:\tApartment:\n"
-// #define PRINT_REAL_ESTATE_DATA_FORMAT "%d\t\t%u\t\t\t%s\t\"%s\"%u%c\t\t%d\t%u\n"
+#define PRINT_REAL_ESTATE_DATA_FORMAT_HEADER "Unique number:\tCadastre number:\tCity:\t\tStreet:\t\t\t\tFloor:\tApartment:\n"
+#define PRINT_REAL_ESTATE_DATA_FORMAT "%d\t\t%u\t\t\t%s\t\t\"%s\"%u%c\t%*d\t%u\n"
 
 #define checkAllocationError(ptr) \
             if ((ptr) == NULL) { \

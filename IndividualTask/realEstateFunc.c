@@ -1,5 +1,6 @@
 #include "realEstate.h"
 
+/*main menu*/
 void menu() {
     int choice;
 
@@ -162,6 +163,7 @@ void extractPersonData(FILE* stream, person* dataContainer) {
 }
 /*Print data for a person*/
 void printPersonData(person *data) {
+
     printf("----------Owner----------\n");
     printf("firstname: %s\n", data->firstName);
     printf("middleName: %s\n", data->middleName);
@@ -174,6 +176,7 @@ void printPersonData(person *data) {
     printf("Number of deed: %u\n", data->numberOfDeedDoc);
     printf("Document date: " PRINT_DATE_FORMAT "\n", data->deedDocDate.day, data->deedDocDate.month, data->deedDocDate.year);
     printf("Percentage owned: %u%%\n",data->percentageOwnedInEstate);
+
 }
 /*gives the number of owners between 2 real estates in the file*/
 int getNumberOfOwners(FILE* stream) {
@@ -187,14 +190,18 @@ int getNumberOfOwners(FILE* stream) {
     }
 
     while(!isNumber(buffer) && !feof(stream)) {
+
         if((fgetc(stream)) == '\n') {
+
             fscanf(stream, "%[^,]s", buffer);
+
             if(!isNumber(buffer) && strlen(buffer) > 1) {
                 strcpy(buffer, "");
                 countOwners++;
             }
         }
     }
+
     if(!feof(stream) || countOwners != 0)
         fseek(stream, pointerPos, SEEK_SET);
 
@@ -203,6 +210,7 @@ int getNumberOfOwners(FILE* stream) {
 
 /*REAL ESTATE FUNCTIONS*/
 void enterRealEstateData(realEstate* realEstateData) {
+
     printf("Enter data for the real estate:\n");
     printf("Enter unique real estate number: ");
     scanf("%d", &realEstateData->uniqueEstateNumber);
@@ -243,10 +251,11 @@ void extractEstateData(FILE* stream, realEstate* dataContainer) {
 }
 /*prints data for real estate - NEED To MODIFY*/
 void printRealEstateData(realEstate* data) {
+    
     printf(PRINT_REAL_ESTATE_DATA_FORMAT_HEADER);
     printf(PRINT_REAL_ESTATE_DATA_FORMAT, data->uniqueEstateNumber, data->cadastreNumber,
                 data->estateAddress.city, data->estateAddress.streetName, data->estateAddress.streetNumber,
-                data->estateAddress.entrance, data->estateAddress.floor, data->estateAddress.apartmentNumber);
+                data->estateAddress.entrance, (22 - strlen(data->estateAddress.streetName)), data->estateAddress.floor, data->estateAddress.apartmentNumber);
 }
 
 /*1. Ref*/
@@ -353,8 +362,6 @@ void enterEstateAddress(char *dataContainer) {
 
     printf("Street name: ");
     scanf("%[^\n]s", address);
-    // fgets(address, 50, stdin);
-    // address[strlen(address) - 1] = '\0';
     strcat(dataContainer, address);
     strcat(dataContainer, ",");
 
@@ -389,6 +396,7 @@ void checkAddressAndPrintOwners(FILE* stream, char* streetAddress, person *dataC
                 while(fgetc(stream) != '\n') {
                     ;
                 }
+
                 int pos = ftell(stream);
                 fseek(stream, pos - 1, SEEK_SET);
             }
@@ -398,6 +406,7 @@ void checkAddressAndPrintOwners(FILE* stream, char* streetAddress, person *dataC
                 owners = getNumberOfOwners(stream);
                 
                 dataContainer = (person*)realloc(dataContainer, owners * sizeof(person));
+                
                 fgetc(stream);
                 for(; i < owners; i++) {
                     extractPersonData(stream, &dataContainer[i]);
@@ -442,7 +451,6 @@ unsigned extractPassportNumber(FILE *stream) {
     char buffer[50];
     int filePointerPosition = ftell(stream);
     unsigned ret;
-    char *ptr;
 
     for(int i = 0; i < 10; i ++) 
         fscanf(stream, "%[^,],", buffer);
@@ -451,7 +459,7 @@ unsigned extractPassportNumber(FILE *stream) {
 
     fseek(stream, filePointerPosition, SEEK_SET);
 
-    ret = strtoul(buffer, &ptr, 10);
+    ret = strtoul(buffer, NULL, 10);
     
     return ret;
 }
@@ -538,6 +546,7 @@ void printOptionWithPassportNumber() {
     fp = NULL;
 }
 
+/*Help functions*/
 int comparePercentages(const void *a, const void *b) {
     person *r1 = (person*)a;
     person *r2 = (person*)b;
