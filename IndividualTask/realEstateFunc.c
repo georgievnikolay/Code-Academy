@@ -143,7 +143,6 @@ void enterRealEstateOwnersData(person *personData) {
 
 }
 /*being on the right line extracts data for a person*/
-/*removed fgetc(stream), added',' instead*/
 void extractPersonData(FILE* stream, person* dataContainer) {
     
     fscanf(stream, "%[^,],", dataContainer->firstName);
@@ -250,7 +249,7 @@ void printRealEstateData(realEstate* data) {
                 data->estateAddress.entrance, data->estateAddress.floor, data->estateAddress.apartmentNumber);
 }
 
-/*1. Ref - can be modified*/
+/*1. Ref*/
 int checkCadastreNumber(FILE *stream, int number) {
     char buffer[20];
     int filePointerPosition;
