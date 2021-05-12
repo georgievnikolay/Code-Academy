@@ -1,0 +1,3 @@
+/home/nikolay/Documents/Starcraft/build/CMakeFiles/rebuild_cache.dir
+/home/nikolay/Documents/Starcraft/build/CMakeFiles/starcraft.dir
+/home/nikolay/Documents/Starcraft/build/CMakeFiles/edit_cache.dir
